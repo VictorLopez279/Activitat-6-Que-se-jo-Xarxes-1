@@ -1,123 +1,209 @@
 <!doctype html>
-<html lang="es">
+<html lang="ca">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Infografía: Clasificación IP y redes</title>
-	<link rel="stylesheet" href="css/style.css">
+	<title>Infografia: Classificació IP i Xarxes</title>
+	<style>
+		/* Estil integrat */
+		*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Roboto,Arial,sans-serif}
+		body{background:#f6f8fa;color:#111;line-height:1.5;padding:20px}
+		.container{max-width:1100px;margin:0 auto}
+		.site-header{text-align:center;margin-bottom:18px}
+		.main-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+		.main-nav a{background:#0b5fff;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:600}
+		.main-nav a.active{box-shadow:0 0 0 3px rgba(11,95,255,0.12)}
+		.card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 6px rgba(10,10,10,.06);margin-bottom:16px}
+		.resp-img{max-width:100%;height:auto;border-radius:6px;margin-top:8px}
+		.hidden{display:none !important}
+		pre{background:#111827;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto;margin-top:8px}
+		code{background:#f3f4f6;padding:2px 6px;border-radius:4px;font-family:monospace}
+		.section-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
+		.section-nav a{color:#0b5fff;text-decoration:none}
+		footer{text-align:center;margin-top:24px;color:#555;font-size:.9rem}
+	</style>
 </head>
 <body>
 	<div class="container">
 		<header class="site-header">
-			<h1>Clasificación IP y Configuraciones de red</h1>
-			<p>Infografía y guía práctica: IPs, máscaras, VLAN, máquinas virtuales, Windows y Linux.</p>
+			<h1>Classificació IP i Configuracions de Xarxa</h1>
+			<p>Infografia i guia pràctica: IPs, màscares, VLAN, VMs, Windows i Linux.</p>
 		</header>
 
-		<nav class="main-nav" aria-label="Navegación principal">
-			<a href="#intro">Inicio</a>
-			<a href="#ips">Clasificación de IPs</a>
-			<a href="#mascaras">Máscaras</a>
+		<nav class="main-nav" aria-label="Navegació principal">
+			<a href="#intro">Inici</a>
+			<a href="#ips">Classificació IP</a>
+			<a href="#mascaras">Màscares</a>
 			<a href="#vlan">VLAN</a>
-			<a href="#vms">Máquinas Virtuales</a>
+			<a href="#vms">Màquinas Virtuals</a>
 			<a href="#windows">Windows</a>
 			<a href="#linux">Linux</a>
 		</nav>
 
-		<section id="intro" class="card hidden" tabindex="-1">
-			<h2>Introducción</h2>
+		<section id="intro" class="card" tabindex="-1">
+			<h2>Per començar</h2>
 			<ul>
-				<li>Explicaciones y ejemplos de direcciones para servidores y puertas de enlace.</li>
-				<li>Guías detalladas para configurar redes en diferentes entornos.</li>
-				<li>Añade imágenes en <code>assets/images</code> con los nombres indicados en las secciones.</li>
-				<li>Aprende a identificar las necesidades de tu red y asignar recursos de manera eficiente.</li>
+				<li>Explicacions i exemples d'adreces per a servidors i gateways.</li>
+				<li>Guies pas a pas per Packet Tracer, VMware/VirtualBox i configuracions en Debian/Ubuntu 24.04 i Windows.</li>
+				<li>Afegiu imatges a assets/images amb els noms indicats en les seccions.</li>
 			</ul>
 		</section>
 
-		<section id="ips" class="card hidden" tabindex="-1">
-			<h2>Clasificación de IPs</h2>
-			<h3>Clases y rangos importantes</h3>
+		<section id="ips" class="card" tabindex="-1">
+			<h2>Classificación de IPs</h2>
+			<div class="section-nav">
+				<a href="#intro">↑ Inicio</a>
+			</div>
+
+			<h3>Classes i rangs importants</h3>
 			<ul>
-				<li>Clase A: 1.0.0.0 – 126.255.255.255 (grandes redes, hasta 16 millones de hosts).</li>
-				<li>Clase B: 128.0.0.0 – 191.255.255.255 (redes medianas, hasta 65,000 hosts).</li>
-				<li>Clase C: 192.0.0.0 – 223.255.255.255 (redes pequeñas, hasta 254 hosts).</li>
+				<li>Classe A: 1.0.0.0 – 255.0.0.0</li>
+				<li>Classe B: 128.0.0.0 – 255.255.0.0</li>
+				<li>Classe C: 192.168.4.6 – 255.255.255.0</li>
 			</ul>
-			<h3>Rangos privados (uso habitual)</h3>
+
+			<h3>Rangs privats (ús habitual)</h3>
 			<ul>
-				<li>10.0.0.0/8: Utilizado en grandes empresas para redes internas.</li>
-				<li>172.16.0.0/12: Ideal para redes medianas o departamentales.</li>
-				<li>192.168.0.0/16: Común en redes domésticas y pequeñas oficinas.</li>
+				<li>10.0.0.0 - 255.0.0.0 </li>
+				<li>172.16.0.0 hasta 172.31.0.0 - 255.255.0.0</li>
+				<li>192.168.0.0 - 255.255.255.0</li> 
 			</ul>
-			<p>Las direcciones privadas no son accesibles desde Internet y requieren NAT para conexiones externas.</p>
-			<img src="assets/images/ips-example.png" alt="Ejemplo IPs" class="resp-img">
+
+			<img src="assets/images/ips-example.png" alt="Exemple IPs" class="resp-img">
+			<p>Imatge recomanada: <code>ips-example.png</code></p>
 		</section>
 
-		<section id="mascaras" class="card hidden" tabindex="-1">
-			<h2>Máscaras de red y cálculo</h2>
-			<h3>Conceptos básicos</h3>
-			<p>La máscara define la parte de la IP que corresponde a la red. Ejemplos comunes:</p>
+		<section id="mascaras" class="card" tabindex="-1">
+			<h2>Màscares de xarxa i càlcul</h2>
+			<div class="section-nav">
+				<a href="#ips">← IPs</a> <a href="#vlan">→ VLAN</a>
+			</div>
+
+			<h3>Conceptes bàsics</h3>
+			<p>La màscara defineix la part de la IP que correspon a la xarxa. Exemples comuns:</p>
 			<ul>
-				<li>/8 → 255.0.0.0 (Clase A, grandes redes).</li>
-				<li>/16 → 255.255.0.0 (Clase B, redes medianas).</li>
-				<li>/24 → 255.255.255.0 (Clase C, redes pequeñas).</li>
+				<li>/8 → 255.0.0.0</li>
+				<li>/16 → 255.255.0.0</li>
+				<li>/24 → 255.255.255.0</li>
 			</ul>
-			<h3>Ejemplo de cálculo</h3>
-			<p>IP 192.168.10.0/24 → red: 192.168.10.0, broadcast: 192.168.10.255, hosts: 192.168.10.1–192.168.10.254 (254 hosts).</p>
-			<p>Utiliza herramientas como <code>ipcalc</code> o calculadoras en línea para simplificar el cálculo de subredes.</p>
-			<img src="assets/images/mascara-chart.png" alt="Tabla máscaras" class="resp-img">
+
+			<h3>Exemple de càlcul</h3>
+			<p>IP 192.168.10.0/24 → xarxa: 192.168.10.0, broadcast: 192.168.10.255, hosts: 192.168.10.1–192.168.10.254 (254 hosts).</p>
+
+			<h3>Subnetting (exemple /26)</h3>
+			<p>/26 → 255.255.255.192 → blocs de 64 adreces (62 hosts útils). De 192.168.10.0/24 en /26 obtenim 4 subxarxes: 192.168.10.0, .64, .128, .192.</p>
+
+			<pre>
+Ex: IP: 192.168.10.70/26
+Màscara: 255.255.255.192
+Xarxa: 192.168.10.64
+Primer host: 192.168.10.65
+Últim host: 192.168.10.126
+Broadcast: 192.168.10.127
+			</pre>
+
+			<img src="assets/images/mascara-chart.png" alt="Taula màscares" class="resp-img">
+			<p>Imatge recomanada: <code>mascara-chart.png</code></p>
 		</section>
 
-		<section id="vlan" class="card hidden" tabindex="-1">
-			<h2>VLAN — Qué es y para qué sirve</h2>
-			<p>VLAN = Virtual LAN. Segmenta una misma red física en múltiples segmentos lógicos para separar tráfico, mejorar seguridad y gestión.</p>
+		<section id="vlan" class="card" tabindex="-1">
+			<h2>VLAN — Què és i per què serveix</h2>
+			<div class="section-nav">
+				<a href="#mascaras">← Màscares</a> <a href="#vms">→ VMs</a>
+			</div>
+
+			<p>VLAN = Virtual LAN. Segmenta una mateixa xarxa física en múltiples segments lògics per separar trànsit, millorar seguretat i gestió.</p>
 			<ul>
-				<li>Separar voz (VLAN 10) y datos (VLAN 20).</li>
-				<li>Separar departamentos: administración, I+D, invitados.</li>
-				<li>Mejorar el rendimiento reduciendo el tráfico de difusión.</li>
+				<li>Separar veu (VLAN 10) i dades (VLAN 20).</li>
+				<li>Separar departaments: administració, R+D, convidats.</li>
 			</ul>
-			<p>Las VLANs se configuran en switches gestionables y requieren etiquetado (802.1Q) para tráfico entre switches.</p>
+
+			<h3>Configuració bàsica en Cisco (Packet Tracer)</h3>
+			<pre>
+Switch> enable
+Switch# configure terminal
+Switch(config)# vlan 10
+Switch(config-vlan)# name VOICE
+Switch(config)# interface FastEthernet0/1
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 10
+			</pre>
+			<p>Per trunks:</p>
+			<pre>
+Switch(config)# interface GigabitEthernet0/1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 10,20
+			</pre>
+
 			<img src="assets/images/vlan-diagram.png" alt="Diagrama VLAN" class="resp-img">
+			<p>Imatge recomanada: <code>vlan-diagram.png</code></p>
 		</section>
 
-		<section id="vms" class="card hidden" tabindex="-1">
-			<h2>Red en Máquinas Virtuales</h2>
-			<h3>Modos de adaptador</h3>
+		<section id="vms" class="card" tabindex="-1">
+			<h2>Xarxa en Màquines Virtuals</h2>
+			<div class="section-nav">
+				<a href="#vlan">← VLAN</a> <a href="#windows">→ Windows</a>
+			</div>
+
+			<h3>Modes d'adaptador</h3>
 			<ul>
-				<li>NAT: La VM comparte la IP del anfitrión; acceso saliente a Internet.</li>
-				<li>Bridged: La VM aparece en la red física con su propia IP.</li>
-				<li>Host-only: Red privada entre host y VMs (sin Internet por defecto).</li>
-				<li>Internal: Red solo entre VMs.</li>
+				<li>NAT: la VM comparteix la IP de l'amfitrió; accés sortint a Internet.</li>
+				<li>Bridged (Pont): la VM apareix a la xarxa física amb la seva pròpia IP.</li>
+				<li>Host-only: xarxa privada entre host i VMs (sense Internet per defecte).</li>
+				<li>Internal: xarxa només entre VMs.</li>
 			</ul>
-			<p>Configura el modo según las necesidades de tu red y seguridad.</p>
-			<img src="assets/images/vm-networking.png" alt="Modos VM" class="resp-img">
+
+			<h3>Exemple: assignar IP estàtica amb netplan</h3>
+			<pre>
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      addresses: [192.168.56.10/24]
+      gateway4: 192.168.56.1
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+			</pre>
+
+			<img src="assets/images/vm-networking.png" alt="Modes VM" class="resp-img">
 		</section>
 
-		<section id="windows" class="card hidden" tabindex="-1">
-			<h2>Configuración de red en Windows</h2>
+		<section id="windows" class="card" tabindex="-1">
+			<h2>Configuració de xarxa en Windows</h2>
+			<div class="section-nav">
+				<a href="#vms">← VMs</a> <a href="#linux">→ Linux</a>
+			</div>
+
 			<h3>GUI (Windows 10/11)</h3>
 			<ol>
-				<li>Abrir Configuración → Red e Internet → Ethernet/Wi‑Fi.</li>
-				<li>Cambiar las propiedades del adaptador → Asignar IP manualmente.</li>
+				<li>Obrir Configuració → Xarxa i Internet → Ethernet/Wi‑Fi.</li>
+				<li>Canviar les propietats de l'adaptador → Assignar IP manualment.</li>
 			</ol>
-			<h3>PowerShell (asignar IP estática)</h3>
+
+			<h3>PowerShell (assignar IP estàtica)</h3>
 			<pre>
-# Encontrar el nombre del adaptador
+# Trobar el nom de l'adaptador
 Get-NetAdapter
 
-# Asignar IP
+# Assignar IP
 New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.1.50 -PrefixLength 24 -DefaultGateway 192.168.1.1
 
-# Asignar DNS
+# Assignar DNS
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8","8.8.4.4")
 			</pre>
-			<p>Utiliza PowerShell para automatizar configuraciones en múltiples dispositivos.</p>
-			<img src="assets/images/windows-network.png" alt="Red Windows" class="resp-img">
+
+			<img src="assets/images/windows-network.png" alt="Windows Network" class="resp-img">
 		</section>
 
-		<section id="linux" class="card hidden" tabindex="-1">
-			<h2>Configuración de red en Linux (Debian y Ubuntu 24.04)</h2>
+		<section id="linux" class="card" tabindex="-1">
+			<h2>Configuració de xarxa en Linux (Debian i Ubuntu 24.04)</h2>
+			<div class="section-nav">
+				<a href="#windows">← Windows</a> <a href="#intro">↑ Inici</a>
+			</div>
+
 			<h3>Debian (ifupdown — /etc/network/interfaces)</h3>
 			<pre>
-# Ejemplo /etc/network/interfaces
+# Exemple /etc/network/interfaces
 auto eth0
 iface eth0 inet static
     address 192.168.10.20
@@ -125,6 +211,7 @@ iface eth0 inet static
     gateway 192.168.10.1
     dns-nameservers 8.8.8.8 8.8.4.4
 			</pre>
+
 			<h3>Ubuntu 24.04 (netplan)</h3>
 			<pre>
 # /etc/netplan/01-network.yaml
@@ -141,27 +228,33 @@ network:
 # Aplicar
 sudo netplan apply
 			</pre>
-			<p>Utiliza comandos como <code>ip a</code> y <code>ping</code> para verificar la configuración.</p>
-			<img src="assets/images/linux-network.png" alt="Red Linux" class="resp-img">
+
+			<p>Comprovar: <code>ip a</code>, <code>ip route</code>, <code>ping 8.8.8.8</code></p>
+			<img src="assets/images/linux-network.png" alt="Linux Network" class="resp-img">
 		</section>
 
 		<footer>
-			<p>Proyecto: Actividad 6 — Redes. Añade imágenes en <code>assets/images</code>.</p>
+			<p>Projecte: Activitat 6 — Xarxes. Afegiu imatges a <code>assets/images</code> amb noms recomanats: ips-example.png, mascara-chart.png, vlan-diagram.png, vm-networking.png, windows-network.png, linux-network.png</p>
 		</footer>
 	</div>
 
 	<script>
-		// Mostrar solo la sección activa según location.hash
+		// Mostrar solo la sección activa segons location.hash
 		function showSection() {
-			const sections = document.querySelectorAll('section');
+			const sections = document.querySelectorAll('section[id]');
 			const hash = location.hash || '#intro';
-			sections.forEach(section => {
-				section.classList.toggle('hidden', `#${section.id}` !== hash);
+			sections.forEach(s => {
+				s.classList.toggle('hidden', ('#' + s.id) !== hash);
 			});
-			// Marcar enlace activo en el menú
-			document.querySelectorAll('.main-nav a').forEach(link => {
-				link.classList.toggle('active', link.getAttribute('href') === hash);
+			// marcar enlace actiu
+			document.querySelectorAll('.main-nav a').forEach(a => {
+				a.classList.toggle('active', a.getAttribute('href') === hash);
 			});
+			// opcional: gestionar historial si se quiere
+			const target = document.querySelector(hash);
+			if (target) {
+				target.scrollIntoView({behavior: 'smooth', block: 'start'});
+			}
 		}
 		window.addEventListener('hashchange', showSection);
 		window.addEventListener('DOMContentLoaded', showSection);
