@@ -35,6 +35,9 @@
 
 		<section id="ips" class="card" tabindex="-1">
 			<h2>Clasificación de IPs</h2>
+			<div class="section-nav">
+				<a href="#intro">↑ Inicio</a>
+			</div>
 			<h3>Clases y rangos importantes</h3>
 			<ul>
 				<li>Clase A: 1.0.0.0 – 126.255.255.255 (grandes redes, hasta 16 millones de hosts).</li>
@@ -53,6 +56,9 @@
 
 		<section id="mascaras" class="card" tabindex="-1">
 			<h2>Máscaras de red y cálculo</h2>
+			<div class="section-nav">
+				<a href="#ips">← IPs</a> <a href="#vlan">→ VLAN</a>
+			</div>
 			<h3>Conceptos básicos</h3>
 			<p>La máscara define la parte de la IP que corresponde a la red. Ejemplos comunes:</p>
 			<ul>
@@ -68,6 +74,9 @@
 
 		<section id="vlan" class="card" tabindex="-1">
 			<h2>VLAN — Qué es y para qué sirve</h2>
+			<div class="section-nav">
+				<a href="#mascaras">← Máscaras</a> <a href="#vms">→ Máquinas Virtuales</a>
+			</div>
 			<p>VLAN = Virtual LAN. Segmenta una misma red física en múltiples segmentos lógicos para separar tráfico, mejorar seguridad y gestión.</p>
 			<ul>
 				<li>Separar voz (VLAN 10) y datos (VLAN 20).</li>
@@ -80,6 +89,9 @@
 
 		<section id="vms" class="card" tabindex="-1">
 			<h2>Red en Máquinas Virtuales</h2>
+			<div class="section-nav">
+				<a href="#vlan">← VLAN</a> <a href="#windows">→ Windows</a>
+			</div>
 			<h3>Modos de adaptador</h3>
 			<ul>
 				<li>NAT: La VM comparte la IP del anfitrión; acceso saliente a Internet.</li>
@@ -93,6 +105,9 @@
 
 		<section id="windows" class="card" tabindex="-1">
 			<h2>Configuración de red en Windows</h2>
+			<div class="section-nav">
+				<a href="#vms">← Máquinas Virtuales</a> <a href="#linux">→ Linux</a>
+			</div>
 			<h3>GUI (Windows 10/11)</h3>
 			<ol>
 				<li>Abrir Configuración → Red e Internet → Ethernet/Wi‑Fi.</li>
@@ -115,6 +130,9 @@ Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8
 
 		<section id="linux" class="card" tabindex="-1">
 			<h2>Configuración de red en Linux (Debian y Ubuntu 24.04)</h2>
+			<div class="section-nav">
+				<a href="#windows">← Windows</a> <a href="#intro">↑ Inicio</a>
+			</div>
 			<h3>Debian (ifupdown — /etc/network/interfaces)</h3>
 			<pre>
 # Ejemplo /etc/network/interfaces
@@ -151,21 +169,22 @@ sudo netplan apply
 	</div>
 
 	<script>
-		// Mostrar solo la sección activa segons location.hash
+		// Mostrar solo la sección activa según location.hash
 		function showSection() {
 			const sections = document.querySelectorAll('section[id]');
 			const hash = location.hash || '#intro';
 			sections.forEach(s => {
 				s.classList.toggle('hidden', ('#' + s.id) !== hash);
 			});
-			// marcar enlace actiu
+			// Marcar enlace activo
 			document.querySelectorAll('.main-nav a').forEach(a => {
 				a.classList.toggle('active', a.getAttribute('href') === hash);
 			});
-			// opcional: gestionar historial si se quiere
+			// Asegurar foco/acceso accesible a la sección visible
 			const target = document.querySelector(hash);
 			if (target) {
-				target.scrollIntoView({behavior: 'smooth', block: 'start'});
+				target.querySelector('h2')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				target.querySelector('h2')?.focus?.();
 			}
 		}
 		window.addEventListener('hashchange', showSection);
