@@ -5,22 +5,109 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Infografía: Clasificación IP y redes</title>
 	<style>
-		/* Estil integrat */
-		*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Roboto,Arial,sans-serif}
-		body{background:#f6f8fa;color:#111;line-height:1.5;padding:20px}
-		.container{max-width:1100px;margin:0 auto}
-		.site-header{text-align:center;margin-bottom:18px}
-		.main-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-		.main-nav a{background:#0b5fff;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:600}
-		.main-nav a.active{box-shadow:0 0 0 3px rgba(11,95,255,0.12)}
-		.card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 6px rgba(10,10,10,.06);margin-bottom:16px}
-		.resp-img{max-width:100%;height:auto;border-radius:6px;margin-top:8px}
-		.hidden{display:none !important}
-		pre{background:#111827;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto;margin-top:8px}
-		code{background:#f3f4f6;padding:2px 6px;border-radius:4px;font-family:monospace}
-		.section-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
-		.section-nav a{color:#0b5fff;text-decoration:none}
-		footer{text-align:center;margin-top:24px;color:#555;font-size:.9rem}
+		/* Estilo mejorado */
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+		}
+		body {
+			background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+			color: #333;
+			line-height: 1.6;
+			padding: 20px;
+		}
+		.container {
+			max-width: 1100px;
+			margin: 0 auto;
+			padding: 20px;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+		.site-header {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.site-header h1 {
+			font-size: 2.5rem;
+			color: #0b5fff;
+		}
+		.site-header p {
+			font-size: 1.2rem;
+			color: #555;
+		}
+		.main-nav {
+			display: flex;
+			gap: 10px;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin-bottom: 20px;
+		}
+		.main-nav a {
+			background: #0b5fff;
+			color: #fff;
+			padding: 10px 15px;
+			border-radius: 6px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: background 0.3s ease;
+		}
+		.main-nav a:hover {
+			background: #084bcc;
+		}
+		.main-nav a.active {
+			box-shadow: 0 0 0 3px rgba(11, 95, 255, 0.2);
+		}
+		.card {
+			background: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+		}
+		.card h2 {
+			color: #0b5fff;
+			margin-bottom: 10px;
+		}
+		.card ul, .card ol {
+			margin: 10px 0 0 20px;
+		}
+		.card ul li, .card ol li {
+			margin-bottom: 8px;
+		}
+		.resp-img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 8px;
+			margin-top: 15px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+		}
+		pre {
+			background: #f3f4f6;
+			color: #333;
+			padding: 15px;
+			border-radius: 8px;
+			overflow: auto;
+			margin-top: 15px;
+			font-size: 0.9rem;
+		}
+		code {
+			background: #eef;
+			padding: 2px 6px;
+			border-radius: 4px;
+			font-family: monospace;
+		}
+		footer {
+			text-align: center;
+			margin-top: 30px;
+			color: #555;
+			font-size: 0.9rem;
+		}
+		footer p {
+			margin-top: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -92,7 +179,7 @@
 				<li>Mejorar el rendimiento reduciendo el tráfico de difusión.</li>
 			</ul>
 			<p>Las VLANs se configuran en switches gestionables y requieren etiquetado (802.1Q) para tráfico entre switches.</p>
-			<img src="Fotos/Red_institucional.jpg" alt="Diagrama VLAN" class="resp-img">
+			<img src="assets/images/vlan-diagram.png" alt="Diagrama VLAN" class="resp-img">
 		</section>
 
 		<section id="vms" class="card" tabindex="-1">
