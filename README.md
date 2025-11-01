@@ -1,1 +1,0 @@
-# Activitat-6-Que-se-jo-Xarxes
