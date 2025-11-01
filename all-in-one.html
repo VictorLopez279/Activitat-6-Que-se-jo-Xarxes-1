@@ -12,9 +12,11 @@
 		.site-header{text-align:center;margin-bottom:18px}
 		.main-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
 		.main-nav a{background:#0b5fff;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:600}
+		.main-nav a.active{box-shadow:0 0 0 3px rgba(11,95,255,0.12)}
 		.card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 6px rgba(10,10,10,.06);margin-bottom:16px}
 		.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:16px}
 		.resp-img{max-width:100%;height:auto;border-radius:6px;margin-top:8px}
+		.hidden{display:none !important}
 		pre{background:#111827;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto;margin-top:8px}
 		code{background:#f3f4f6;padding:2px 6px;border-radius:4px;font-family:monospace}
 		.section-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
@@ -243,5 +245,13 @@ sudo netplan apply
 			<p>Projecte: Activitat 6 — Xarxes. Afegiu imatges a <code>assets/images</code> amb noms recomanats: ips-example.png, mascara-chart.png, vlan-diagram.png, vm-networking.png, windows-network.png, linux-network.png</p>
 		</footer>
 	</div>
-</body>
-</html>
+
+	<script>
+		// Mostrar solo la sección activa segons location.hash
+		function showSection() {
+			const sections = document.querySelectorAll('section[id]');
+			const hash = location.hash || '#intro';
+			sections.forEach(s => {
+				s.classList.toggle('hidden', ('#' + s.id) !== hash);
+			});
+			// marcar enlace actif
