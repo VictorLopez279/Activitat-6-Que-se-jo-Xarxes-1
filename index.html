@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<header class="site-header">
-			<h1>Classificación IP i Configuracions de Xarxa</h1>
+			<h1>Classificación IP y Configuracions de red</h1>
 			<p>Infografía y guia pràctica: IPs, màscaras, VLAN, VMs, Windows y Linux.</p>
 		</header>
 
@@ -26,7 +26,7 @@
 		<section id="intro" class="card" tabindex="-1">
 			<h2>Para comenzar:</h2>
 			<ul>
-				<li>Explicaciones y ejemplos de direcciones para a servidores y gateways.</li>
+				<li>Explicaciones y ejemplos de direcciones para servidores y gateways.</li>
 				<li>Guias paso a paso con el Packet Tracer, VMware/VirtualBox i configuraciones en Debian/Ubuntu 24.04 y Windows.</li>
 				<li>Añadir imagenes a assets/images con los nombres indicados en las secciones.</li>
 			</ul>
@@ -174,11 +174,7 @@ New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.1.50 -PrefixLengt
 # Assignar DNS
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8","8.8.4.4")
 			</pre>
-			<br>
-			<div>
-				<p>Power shell visto des mi ordenador</p>
-			<img src="Fotos/Captura de pantalla 2025-11-02 172443.png" alt="Windows Network" class="resp-img">
-			</div>
+			<br>	
 		</section>
 
 		<section id="linux" class="card" tabindex="-1">
@@ -216,7 +212,6 @@ sudo netplan apply
 			</pre>
 
 			<p>Comprovar: <code>ip a</code>, <code>ip route</code>, <code>ping 8.8.8.8</code></p>
-			<img src="assets/images/linux-network.png" alt="Linux Network" class="resp-img">
 		</section>
 
 		<footer>
