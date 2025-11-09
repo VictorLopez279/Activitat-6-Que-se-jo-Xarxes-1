@@ -14,226 +14,27 @@
 		</header>
 
 		<nav class="main-nav" aria-label="Navegació principal">
-			<a href="#intro">Inicio</a>
-			<a href="#ips">Clasificación IP</a>
-			<a href="#mascaras">Máscaras</a>
-			<a href="#vlan">VLAN</a>
-			<a href="#vms">Màquinas Virtuales</a>
-			<a href="#windows">Windows</a>
-			<a href="#linux">Linux</a>
+			<a href="index.html" class="active">Inicio</a>
+			<a href="ips.html">Clasificación IP</a>
+			<a href="mascaras.html">Máscaras</a>
+			<a href="vlan.html">VLAN</a>
+			<a href="vms.html">Màquinas Virtuales</a>
+			<a href="windows.html">Windows</a>
+			<a href="linux.html">Linux</a>
 		</nav>
 
 		<section id="intro" class="card" tabindex="-1">
 			<h2>Bienvenido</h2>
-			<p>Navega por las secciones para encontrar información detallada sobre cada tema.</p>
-		</section>
-
-		<section id="ips" class="card" tabindex="-1">
-			<h2>Clasificación de IPs</h2>
-			<div class="section-nav">
-				<a href="#intro">↑ Inicio</a>
-			</div>
-
-			<p>Las direcciones IP se clasifican en diferentes clases según su rango. A continuación encontrarás una explicación detallada con ejemplos de direcciones IP.</p>
-
-			<h3>Clases y rangos importantes</h3>
-			<ul>
-				<li>Classe A: 0.0.0.0 a 127.0.0.0 – Mascara: 255.0.0.0</li>
-				<li>Classe B: 128.0.0.0 a 191.0.0.0 – Mascara: 255.255.0.0</li>
-				<li>Classe C: 192.0.0.0 a 223.0.0.0 – Mascara: 255.255.255.0</li>
-				<li>Classe D: 224.0.0.0 a 239.0.0.0 - Mascara:  No tiene una mascara de subred predeterminda.</li>
-				<li>Classe E: 240.0.0.0 a 255.0.0.0 - Mascara: Esta clase de IPs esta reservado para el uso experimental y usos de investigación. </li>
-			</ul>
-
-			<h3>Rangos privados (uso habitual):</h3>
-			<ul>
-				<li>Clase A: 10.0.0.0 - Mascara: /8</li>
-				<li>Clase B: 172.16.0.0 hasta 172.31.0.0 - Mascara: /16</li>
-				<li>Clase C: 192.168.0.0 - Mascara: /24</li> 
-			</ul>
-
-			<img src="Fotos/tabla-resumen-direccionamiento-ip.webp" alt="Exemple IPs" class="resp-img">
-			<p>Imatge recomanada: <code>ips-example.png</code></p>
-		</section>
-
-		<section id="mascaras" class="card" tabindex="-1">
-			<h2>Máscaras de red</h2>
-			<div class="section-nav">
-				<a href="#ips">← IPs</a> <a href="#vlan">→ VLAN</a>
-			</div>
-
-			<p>Las máscaras de red son fundamentales para entender cómo se divide una dirección IP entre la parte de red y la parte de host. A continuación encontrarás una explicación detallada de las máscaras de red y cómo calcularlas.</p>
-
-			<h3>Conceptos básicos:</h3>
-			<p>La máscara define la parte de la IP que corresponde a la red. Ejemplos comunes:</p>
-			<ul>
-				<li>/8 → 255.0.0.0</li>
-				<li>/16 → 255.255.0.0</li>
-				<li>/24 → 255.255.255.0</li>
-			</ul>
-
-			<h3>Ejemplo de cálculo:</h3>
-			<p>IP 192.168.10.0/24 → xarxa: 192.168.10.0, broadcast: 192.168.10.255, hosts: 192.168.10.1–192.168.10.254 (254 hosts).</p>
-
-			<h3>Subnetting (exemple /26)</h3>
-			<p>/26 → 255.255.255.192 → blocs de 64 adreces (62 hosts útils). De 192.168.10.0/24 en /26 obtenim 4 subxarxes: 192.168.10.0, .64, .128, .192.</p>
-
-			<pre>
-Ej: IP: 192.168.10.70/26
-Máscara: 255.255.255.192
-Red: 192.168.10.64
-Primer host: 192.168.10.65
-Último host: 192.168.10.126
-Broadcast: 192.168.10.127
-			</pre>
-		</section>
+			<p>Esta guía práctica te ayudará a entender los conceptos fundamentales de redes, desde la clasificación de direcciones IP hasta la configuración de redes en diferentes sistemas operativos.</p>
 			
-		<section id="vlan" class="card" tabindex="-1">
-			<h2>VLAN</h2>
-			<div class="section-nav">
-				<a href="#mascaras">← Màscaras</a> <a href="#vms">→ VMs</a>
-			</div>
-
-			<p>Las VLANs (Virtual Local Area Network) permiten segmentar una misma red física en múltiples segmentos lógicos. A continuación encontrarás una explicación de las VLANs y su configuración básica.</p>
-
-			<h3>¿Qué son y para qué sirven?</h3>
-			<p>VLAN = Virtual Local Area Network. Segmenta una misma red física en múltiples segmentos lógicos para separar tráfico, mejorar seguridad y gestión. Esto permite crear redes virtuales independientes dentro de una misma infraestructura física.</p>
-
-			<h3>Configuración básica en Cisco (Packet Tracer)</h3>
-			<pre>
-Switch> enable
-Switch# configure terminal
-Switch(config)# vlan 10
-Switch(config-vlan)# name VOICE
-Switch(config)# interface FastEthernet0/1
-Switch(config-if)# switchport mode access
-Switch(config-if)# switchport access vlan 10
-			</pre>
-			<h3>Configuración de trunks (enlaces entre switches)</h3>
-			<p>Para conectar switches y permitir que múltiples VLANs pasen por el mismo enlace:</p>
-			<pre>
-Switch(config)# interface GigabitEthernet0/1
-Switch(config-if)# switchport mode trunk
-Switch(config-if)# switchport trunk allowed vlan 10,20
-			</pre>
-
-			<img src="Fotos/Red_institucional.jpg" alt="Diagrama VLAN" class="resp-img">
-
-		</section>
-
-		<section id="vms" class="card" tabindex="-1">
-			<h2>Red en Máquinas Virtuales</h2>
-			<div class="section-nav">
-				<a href="#vlan">← VLAN</a> <a href="#windows">→ Windows</a>
-			</div>
-			
-			<p>Las máquinas virtuales ofrecen diferentes modos de adaptador de red, cada uno con sus propias características y casos de uso. A continuación encontrarás una explicación de los diferentes modos de adaptador en las máquinas virtuales.</p>
-			
-			<h3>Modos de adaptador más utilizados:</h3>
+			<h3>Contenido disponible:</h3>
 			<ul>
-				<li><strong>Modo NAT:</strong> La VM comparte la IP del anfitrión; tiene acceso saliente a Internet. Es el modo más común para uso general.</li>
-				<li><strong>Modo Bridged (puente):</strong> La VM aparece en la red física con su propia IP, como si fuera un dispositivo físico más en la red.</li>
-				<li><strong>Modo Host-only:</strong> Red privada entre el host y las VMs (sin internet por defecto). Útil para pruebas aisladas.</li>
-				<li><strong>Modo Internal:</strong> Red solo entre VMs, sin acceso al host ni a Internet. Ideal para crear redes de prueba completamente aisladas.</li>
-			</ul>
-
-			<h3>Ejemplo práctico: Configuración en VirtualBox</h3>
-			<p>Para configurar el modo de red en VirtualBox:</p>
-			<ol>
-				<li>Selecciona la VM → Configuración → Red</li>
-				<li>Elige el adaptador y selecciona el modo deseado (NAT, Bridged, Host-only, Internal)</li>
-				<li>Para Host-only, puedes configurar una red privada en Archivo → Preferencias → Red</li>
-			</ol>
-
-			<img src="Fotos/Captura de pantalla 2025-11-02 222055.png" alt="Modos de red en Máquinas Virtuales" class="resp-img">
-		</section>
-
-		<section id="windows" class="card" tabindex="-1">
-			<h2>Configuración de red en Windows</h2>
-			<div class="section-nav">
-				<a href="#vms">← VMs</a> <a href="#linux">→ Linux</a>
-			</div>
-
-			<p>Esta guía te ayudará a asignar IPs estáticas en Windows, tanto mediante la interfaz gráfica como mediante PowerShell.</p>
-
-			<h3>Método 1: Interfaz gráfica (Windows 10/11)</h3>
-			<ol>
-				<li>Abrir <strong>Configuración</strong> → <strong>Red e Internet</strong> → <strong>Ethernet</strong> o <strong>Wi‑Fi</strong>.</li>
-				<li>Hacer clic en el adaptador de red activo.</li>
-				<li>Desplazarse hasta <strong>Configuración de IP</strong> y hacer clic en <strong>Editar</strong>.</li>
-				<li>Seleccionar <strong>Manual</strong> y activar <strong>IPv4</strong>.</li>
-				<li>Introducir la IP estática, máscara de subred, puerta de enlace y DNS.</li>
-				<li>Guardar los cambios.</li>
-			</ol>
-
-			<h3>Método 2: PowerShell (línea de comandos)</h3>
-			<p>Para asignar una IP estática mediante PowerShell:</p>
-			<pre>
-# Encontrar el nombre del adaptador
-Get-NetAdapter
-
-# Asignar IP estática
-New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.1.50 -PrefixLength 24 -DefaultGateway 192.168.1.1
-
-# Asignar servidores DNS
-Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8","8.8.4.4")
-			</pre>
-			<p><strong>Nota:</strong> Ejecuta PowerShell como administrador para realizar estos cambios.</p>
-		</section>
-
-		<section id="linux" class="card" tabindex="-1">
-			<h2>Configuración de red en Linux</h2>
-			<div class="section-nav">
-				<a href="#windows">← Windows</a> <a href="#intro">↑ Inici</a>
-			</div>
-
-			<p>Esta guía te ayudará a asignar IPs estáticas en Linux, cubriendo tanto Debian (con ifupdown) como Ubuntu 24.04 (con netplan).</p>
-
-			<h3>Método 1: Debian (ifupdown — /etc/network/interfaces)</h3>
-			<p>Para sistemas basados en Debian que usan ifupdown:</p>
-			<pre>
-# Editar el archivo de configuración
-sudo nano /etc/network/interfaces
-
-# Ejemplo de configuración:
-auto eth0
-iface eth0 inet static
-    address 192.168.10.20
-    netmask 255.255.255.0
-    gateway 192.168.10.1
-    dns-nameservers 8.8.8.8 8.8.4.4
-
-# Reiniciar el servicio de red
-sudo systemctl restart networking
-			</pre>
-
-			<h3>Método 2: Ubuntu 24.04 (netplan)</h3>
-			<p>Para sistemas que usan netplan (Ubuntu 18.04+):</p>
-			<pre>
-# Editar el archivo de configuración
-sudo nano /etc/netplan/01-network.yaml
-
-# Ejemplo de configuración:
-network:
-  version: 2
-  ethernets:
-    enp0s3:
-      dhcp4: no
-      addresses: [192.168.10.30/24]
-      gateway4: 192.168.10.1
-      nameservers:
-        addresses: [8.8.8.8,8.8.4.4]
-
-# Aplicar la configuración
-sudo netplan apply
-			</pre>
-
-			<h3>Verificar la configuración</h3>
-			<p>Después de configurar, verifica que todo funcione correctamente:</p>
-			<ul>
-				<li><code>ip a</code> - Muestra las direcciones IP configuradas</li>
-				<li><code>ip route</code> - Muestra la tabla de enrutamiento</li>
-				<li><code>ping 8.8.8.8</code> - Prueba la conectividad a Internet</li>
+				<li><a href="ips.html">Clasificación de IPs</a> - Explicación y ejemplos de direcciones IP</li>
+				<li><a href="mascaras.html">Máscaras de red</a> - Explicación de las máscaras de red y cómo calcularlas</li>
+				<li><a href="vlan.html">VLAN</a> - Explicación de las VLANs y su configuración básica</li>
+				<li><a href="vms.html">Máquinas Virtuales</a> - Explicación de los diferentes modos de adaptador en las máquinas virtuales</li>
+				<li><a href="windows.html">Configuración de red en Windows</a> - Guía para asignar IPs estáticas</li>
+				<li><a href="linux.html">Configuración de red en Linux</a> - Guía para asignar IPs estáticas</li>
 			</ul>
 		</section>
 
@@ -241,28 +42,5 @@ sudo netplan apply
 			<p>Projecte: Activitat 6 — Xarxes. Afegiu imatges a <code>assets/images</code> amb noms recomanats: ips-example.png, mascara-chart.png, vlan-diagram.png, vm-networking.png, windows-network.png, linux-network.png</p>
 		</footer>
 	</div>
-
-	<script>
-		// Mostrar la sección activa y permitir que todas sean visibles
-		function showSection() {
-			const sections = document.querySelectorAll('section[id]');
-			const hash = location.hash || '#intro';
-			sections.forEach(s => {
-				// Eliminar la clase 'hidden' para que todas las secciones sean visibles
-				s.classList.remove('hidden');
-			});
-			// Marcar enlace activo
-			document.querySelectorAll('.main-nav a').forEach(a => {
-				a.classList.toggle('active', a.getAttribute('href') === hash);
-			});
-			// Desplazar a la sección seleccionada
-			const target = document.querySelector(hash);
-			if (target) {
-				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			}
-		}
-		window.addEventListener('hashchange', showSection);
-		window.addEventListener('DOMContentLoaded', showSection);
-	</script>
 </body>
 </html>
