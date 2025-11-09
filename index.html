@@ -24,22 +24,17 @@
 		</nav>
 
 		<section id="intro" class="card" tabindex="-1">
-			<h2>Para comenzar:</h2>
-			<ul>
-				<li>Clasificación de IPs: explicación y ejemplos de direcciones IP.</li>
-				<li>Máscaras: explicación de las mascaras de red.</li>
-				<li>VLAN: explicación de las VLANs y su configuración básica.</li>
-				<li>Maquinas virtuales: explicación de los diferentes modos de adaptador en las maquinas virtuales.</li>
-				<li>Configuración de red en Windows: guia para asignar IPs estáticas.</li>
-				<li>Configuración de red en Linux: guia para asignar IPs estáticas.</li>
-			</ul>
+			<h2>Bienvenido</h2>
+			<p>Esta guía práctica te ayudará a entender los conceptos fundamentales de redes, desde la clasificación de direcciones IP hasta la configuración de redes en diferentes sistemas operativos. Navega por las secciones para encontrar información detallada sobre cada tema.</p>
 		</section>
 
 		<section id="ips" class="card" tabindex="-1">
-			<h2>Classificación de IPs:</h2>
+			<h2>Clasificación de IPs</h2>
 			<div class="section-nav">
 				<a href="#intro">↑ Inicio</a>
 			</div>
+
+			<p>Las direcciones IP se clasifican en diferentes clases según su rango. A continuación encontrarás una explicación detallada con ejemplos de direcciones IP.</p>
 
 			<h3>Clases y rangos importantes</h3>
 			<ul>
@@ -62,10 +57,12 @@
 		</section>
 
 		<section id="mascaras" class="card" tabindex="-1">
-			<h2>Máscaras de red y càlculo:</h2>
+			<h2>Máscaras de red</h2>
 			<div class="section-nav">
 				<a href="#ips">← IPs</a> <a href="#vlan">→ VLAN</a>
 			</div>
+
+			<p>Las máscaras de red son fundamentales para entender cómo se divide una dirección IP entre la parte de red y la parte de host. A continuación encontrarás una explicación detallada de las máscaras de red y cómo calcularlas.</p>
 
 			<h3>Conceptos básicos:</h3>
 			<p>La máscara define la parte de la IP que corresponde a la red. Ejemplos comunes:</p>
@@ -89,14 +86,18 @@ Primer host: 192.168.10.65
 Último host: 192.168.10.126
 Broadcast: 192.168.10.127
 			</pre>
+		</section>
 			
 		<section id="vlan" class="card" tabindex="-1">
-			<h2>VLAN — Què és y para que sirven</h2>
+			<h2>VLAN</h2>
 			<div class="section-nav">
 				<a href="#mascaras">← Màscaras</a> <a href="#vms">→ VMs</a>
 			</div>
 
-			<p>VLAN = Virtual Local Area Network. Segmenta una misma red física en múltiples segmentos lògicos para el separar trànsito, para mejorar seguridad y gestión.</p>
+			<p>Las VLANs (Virtual Local Area Network) permiten segmentar una misma red física en múltiples segmentos lógicos. A continuación encontrarás una explicación de las VLANs y su configuración básica.</p>
+
+			<h3>¿Qué son y para qué sirven?</h3>
+			<p>VLAN = Virtual Local Area Network. Segmenta una misma red física en múltiples segmentos lógicos para separar tráfico, mejorar seguridad y gestión.</p>
 			<br>
 			<h3>Configuración básica en Cisco (Packet Tracer)</h3>
 			<pre>
@@ -125,7 +126,9 @@ Switch(config-if)# switchport trunk allowed vlan 10,20
 				<a href="#vlan">← VLAN</a> <a href="#windows">→ Windows</a>
 			</div>
 			
-			<h3>Hay diferentes modos de adaptador y los más utilizados en las maquinas virtuales son:</h3>
+			<p>Las máquinas virtuales ofrecen diferentes modos de adaptador de red, cada uno con sus propias características y casos de uso. A continuación encontrarás una explicación de los diferentes modos de adaptador en las máquinas virtuales.</p>
+			
+			<h3>Modos de adaptador más utilizados:</h3>
 			<ul>
 				<li>Modo NAT: la VM comparte la IP del anfitrión; accéso saliendo a Internet.</li>
 				<li>Modo Bridged (puente): la VM aparece a la red física con su propia IP.</li>
@@ -156,6 +159,8 @@ network:
 				<a href="#vms">← VMs</a> <a href="#linux">→ Linux</a>
 			</div>
 
+			<p>Esta guía te ayudará a asignar IPs estáticas en Windows, tanto mediante la interfaz gráfica como mediante PowerShell.</p>
+
 			<h3>GUI (Windows 10/11)</h3>
 			<ol>
 				<li>Abrir configuración → Red y internet → Ethernet/Wi‑Fi.</li>
@@ -177,10 +182,12 @@ Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8
 		</section>
 
 		<section id="linux" class="card" tabindex="-1">
-			<h2>Configuración de red en Linux (Debian y Ubuntu 24.04)</h2>
+			<h2>Configuración de red en Linux</h2>
 			<div class="section-nav">
 				<a href="#windows">← Windows</a> <a href="#intro">↑ Inici</a>
 			</div>
+
+			<p>Esta guía te ayudará a asignar IPs estáticas en Linux, cubriendo tanto Debian (con ifupdown) como Ubuntu 24.04 (con netplan).</p>
 
 			<h3>Debian (ifupdown — /etc/network/interfaces)</h3>
 			<pre>
