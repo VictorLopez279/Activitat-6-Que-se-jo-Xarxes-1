@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ca">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Red en Máquinas Virtuales - Infografía Redes</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<header class="site-header">
+			<h1>Clasificación IP y Configuraciones de red</h1>
+			<p>Infografía y guia pràctica: IPs, máscaras, VLAN, VMs, Windows y Linux.</p>
+		</header>
+
+		<nav class="main-nav" aria-label="Navegació principal">
+			<a href="index.html">Inicio</a>
+			<a href="ips.html">Clasificación IP</a>
+			<a href="mascaras.html">Máscaras</a>
+			<a href="vlan.html">VLAN</a>
+			<a href="vms.html" class="active">Màquinas Virtuales</a>
+			<a href="windows.html">Windows</a>
+			<a href="linux.html">Linux</a>
+		</nav>
+
+		<section id="vms" class="card" tabindex="-1">
+			<h2>Red en Máquinas Virtuales</h2>
+			<div class="section-nav">
+				<a href="vlan.html">← VLAN</a> <a href="windows.html">→ Windows</a>
+			</div>
+			
+			<p>Las máquinas virtuales ofrecen diferentes modos de adaptador de red, cada uno con sus propias características y casos de uso. A continuación encontrarás una explicación de los diferentes modos de adaptador en las máquinas virtuales.</p>
+			
+			<h3>Modos de adaptador más utilizados:</h3>
+			<ul>
+				<li><strong>Modo NAT:</strong> La VM comparte la IP del anfitrión; tiene acceso saliente a Internet. Es el modo más común para uso general.</li>
+				<li><strong>Modo Bridged (puente):</strong> La VM aparece en la red física con su propia IP, como si fuera un dispositivo físico más en la red.</li>
+				<li><strong>Modo Host-only:</strong> Red privada entre el host y las VMs (sin internet por defecto). Útil para pruebas aisladas.</li>
+				<li><strong>Modo Internal:</strong> Red solo entre VMs, sin acceso al host ni a Internet. Ideal para crear redes de prueba completamente aisladas.</li>
+			</ul>
+
+			<h3>Ejemplo práctico: Configuración en VirtualBox</h3>
+			<p>Para configurar el modo de red en VirtualBox:</p>
+			<ol>
+				<li>Selecciona la VM → Configuración → Red</li>
+				<li>Elige el adaptador y selecciona el modo deseado (NAT, Bridged, Host-only, Internal)</li>
+				<li>Para Host-only, puedes configurar una red privada en Archivo → Preferencias → Red</li>
+			</ol>
+
+			<img src="Fotos/Captura de pantalla 2025-11-02 222055.png" alt="Modos de red en Máquinas Virtuales" class="resp-img">
+		</section>
+
+		<footer>
+			<p>Projecte: Activitat 6 — Xarxes. Afegiu imatges a <code>assets/images</code> amb noms recomanats: ips-example.png, mascara-chart.png, vlan-diagram.png, vm-networking.png, windows-network.png, linux-network.png</p>
+		</footer>
+	</div>
+</body>
+</html>
+
