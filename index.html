@@ -219,21 +219,22 @@ sudo netplan apply
 	</div>
 
 	<script>
-		// Mostrar solo la sección activa segons location.hash
+		// Mostrar la sección activa y permitir que todas sean visibles
 		function showSection() {
 			const sections = document.querySelectorAll('section[id]');
 			const hash = location.hash || '#intro';
 			sections.forEach(s => {
-				s.classList.toggle('hidden', ('#' + s.id) !== hash);
+				// Eliminar la clase 'hidden' para que todas las secciones sean visibles
+				s.classList.remove('hidden');
 			});
-			// marcar enlace actiu
+			// Marcar enlace activo
 			document.querySelectorAll('.main-nav a').forEach(a => {
 				a.classList.toggle('active', a.getAttribute('href') === hash);
 			});
-			// opcional: gestionar historial si se quiere
+			// Desplazar a la sección seleccionada
 			const target = document.querySelector(hash);
 			if (target) {
-				target.scrollIntoView({behavior: 'smooth', block: 'start'});
+				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 			}
 		}
 		window.addEventListener('hashchange', showSection);
