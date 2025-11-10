@@ -106,24 +106,6 @@ Broadcast: 192.168.10.127
 
 			<p>Las VLANs (Virtual Local Area Network) permite segmentar una misma red física en múltiples segmentos lógicos.</p>
 
-			<h3>Configuración básica en Cisco (Packet Tracer)</h3>
-			<pre>
-Switch> enable
-Switch# configure terminal
-Switch(config)# vlan 10
-Switch(config-vlan)# name VOICE
-Switch(config)# interface FastEthernet0/1
-Switch(config-if)# switchport mode access
-Switch(config-if)# switchport access vlan 10
-			</pre>
-			<h3>Configuración de trunks (enlaces entre switches)</h3>
-			<p>Para conectar switches y permitir que múltiples VLANs pasen por el mismo enlace:</p>
-			<pre>
-Switch(config)# interface GigabitEthernet0/1
-Switch(config-if)# switchport mode trunk
-Switch(config-if)# switchport trunk allowed vlan 10,20
-			</pre>
-
 			<img src="Fotos/Red_institucional.jpg" alt="Diagrama VLAN" class="resp-img">
 		</section>
 
